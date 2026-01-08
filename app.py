@@ -27,3 +27,6 @@ if st.button("判定"):
         st.image("omedetou.png", width= 200)
     else:
         st.write(f"{cnt1}  ヒット  {cnt2}  ボール")
+        
+if st.button("変更"):
+    st.session_state.ans = [randint(0, 9) for _ in range(3)]
