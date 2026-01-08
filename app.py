@@ -1,21 +1,29 @@
 import streamlit as st
 from random import randint
 
+#答え
 if "ans" not in st.session_state:
     st.session_state.ans = [randint(0, 9) for _ in range(3)]
 
+#挑戦回数
+if "cnt3" not in st.session_state:
+    st.session_state.cnt3 = 0
+
 st.title("数当てゲーム(アプリ版)")
 
+#入力
 a = st.number_input("1桁目(0～9)", min_value = 0, max_value = 9, step = 1)
 b = st.number_input("2桁目(0～9)", min_value = 0, max_value = 9, step = 1)
 c = st.number_input("3桁目(0～9)", min_value = 0, max_value = 9, step = 1)
 
 nums = [a, b, c]
 
+#判定
 if st.button("判定"):
     ans = st.session_state.ans
     cnt1 = 0
     cnt2 = 0
+    st.session_state.cnt3 += 1
     for n in range(3):
         if ans[n] == nums[n]:
             cnt1 += 1
@@ -28,5 +36,9 @@ if st.button("判定"):
     else:
         st.write(f"{cnt1}  ヒット  {cnt2}  ボール")
         
+st.write(f'挑戦回数：{st.session_state.cnt3}回')
+
+#答えの変更     
 if st.button("変更"):
     st.session_state.ans = [randint(0, 9) for _ in range(3)]
+    st.session_state.cnt3 = 0
