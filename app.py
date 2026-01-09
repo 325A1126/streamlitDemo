@@ -58,7 +58,7 @@ elif judge:
         
     #履歴の追加
     st.session_state.history.append({
-        "回数" : st.session_state.cnt3,
+        "回数" : f"{st.session_state.cnt3}回目",
         "入力" : nums,
         "結果" : result})
 
