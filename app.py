@@ -49,18 +49,17 @@ elif judge:
             cnt2 += 1
             
     if cnt1 == 3:
-        result = "🎉 正解！"
         st.write("正解です")
         st.image("omedetou.png", width= 200)
     else:
-        result = f"{cnt1}ヒット　{cnt2}ボール"
-        st.write(result)
+        st.write(f"{cnt1}ヒット　{cnt2}ボール")
         
     #履歴の追加
     st.session_state.history.append({
         "回数" : f"{st.session_state.cnt3}回目",
         "入力" : nums,
-        "結果" : result})
+        "ヒット" : cnt1
+        "ボール" : cnt2})
 
 #挑戦回数の表示       
 st.write(f'挑戦回数：{st.session_state.cnt3}回')
