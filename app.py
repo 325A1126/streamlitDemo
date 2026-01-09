@@ -65,7 +65,7 @@ elif judge:
 #挑戦回数の表示       
 st.write(f'挑戦回数：{st.session_state.cnt3}回')
 
-# 履歴表示
+# 履歴の表示
 st.subheader("判定履歴")
 if st.session_state.history:
     st.table(st.session_state.history)
