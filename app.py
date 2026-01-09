@@ -58,8 +58,8 @@ elif judge:
     st.session_state.history.append({
         "回数" : f"{st.session_state.cnt3}回目",
         "入力" : nums,
-        "ヒット" : cnt1,
-        "ボール" : cnt2})
+        "ヒット" : f"{cnt1}",
+        "ボール" : f"{cnt2}")
 
 #挑戦回数の表示       
 st.write(f'挑戦回数：{st.session_state.cnt3}回')
