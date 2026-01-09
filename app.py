@@ -5,10 +5,11 @@ from random import randint
 if "ans" not in st.session_state:
     st.session_state.ans = [randint(0, 9) for _ in range(3)]
 
-#挑戦回数
+#挑戦回数をカウント
 if "cnt3" not in st.session_state:
     st.session_state.cnt3 = 0
 
+#タイトル
 st.title("数当てゲーム(アプリ版)")
 
 #入力
@@ -35,10 +36,11 @@ if st.button("判定"):
         st.image("omedetou.png", width= 200)
     else:
         st.write(f"{cnt1}  ヒット  {cnt2}  ボール")
-        
+
+#挑戦回数の表示       
 st.write(f'挑戦回数：{st.session_state.cnt3}回')
 
 #答えの変更     
-if st.button("変更"):
+if st.button("リセット"):
     st.session_state.ans = [randint(0, 9) for _ in range(3)]
     st.session_state.cnt3 = 0
