@@ -19,8 +19,17 @@ c = st.number_input("3桁目(0～9)", min_value = 0, max_value = 9, step = 1)
 
 nums = [a, b, c]
 
+#ボタン
+judge = st.button("判定")
+reset = st.button("リセット")
+
+#リセット
+if reset:
+    st.session_state.ans = [randint(0, 9) for _ in range(3)]
+    st.session_state.cnt3 = 0
+    
 #判定
-if st.button("判定"):
+elif judge:
     ans = st.session_state.ans
     cnt1 = 0
     cnt2 = 0
@@ -39,8 +48,3 @@ if st.button("判定"):
 
 #挑戦回数の表示       
 st.write(f'挑戦回数：{st.session_state.cnt3}回')
-
-#答えの変更     
-if st.button("リセット"):
-    st.session_state.ans = [randint(0, 9) for _ in range(3)]
-    st.session_state.cnt3 = 0
