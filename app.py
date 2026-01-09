@@ -47,15 +47,19 @@ elif judge:
             cnt2 += 1
             
     if cnt1 == 3:
-        st.session_state.history.append(
-        f"{st.session_state.cnt3}回目：{nums} → 🎉 正解！"
-    )
+        result = "🎉 正解！"
         st.write("正解です")
         st.image("omedetou.png", width= 200)
     else:
-        st.session_state.history.append(f"{st.session_state.cnt3}回目：{nums}　→　{cnt1}ヒット{cnt2}ボール")
-        st.write(f"{cnt1}  ヒット  {cnt2}  ボール")
+        result = f"{cnt1}ヒット　{cnt2}ボール"
+        st.write(result)
 
+
+#履歴の追加
+st.session_state.history.append({
+    "回数" : st.session_state.cnt3,
+    "入力" : nums,
+    "結果" : result})
 
 #挑戦回数の表示       
 st.write(f'挑戦回数：{st.session_state.cnt3}回')
@@ -63,7 +67,6 @@ st.write(f'挑戦回数：{st.session_state.cnt3}回')
 # 履歴表示
 st.subheader("判定履歴")
 if st.session_state.history:
-    for h in st.session_state.history:
-        st.write(h)
+    st.table(st.session_state.history)
 else:
     st.write("まだ履歴はありません")
