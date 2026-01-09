@@ -5,7 +5,7 @@ from random import randint
 if "ans" not in st.session_state:
     st.session_state.ans = [randint(0, 9) for _ in range(3)]
 
-#挑戦回数をカウント
+#挑戦回数カウンター
 if "cnt3" not in st.session_state:
     st.session_state.cnt3 = 0
 
