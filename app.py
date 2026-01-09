@@ -27,6 +27,8 @@ nums = [a, b, c]
 judge = st.button("判定")
 reset = st.button("リセット")
 
+result = None
+
 #リセット
 if reset:
     st.session_state.ans = [randint(0, 9) for _ in range(3)]
@@ -53,13 +55,12 @@ elif judge:
     else:
         result = f"{cnt1}ヒット　{cnt2}ボール"
         st.write(result)
-
-
-#履歴の追加
-st.session_state.history.append({
-    "回数" : st.session_state.cnt3,
-    "入力" : nums,
-    "結果" : result})
+        
+    #履歴の追加
+    st.session_state.history.append({
+        "回数" : st.session_state.cnt3,
+        "入力" : nums,
+        "結果" : result})
 
 #挑戦回数の表示       
 st.write(f'挑戦回数：{st.session_state.cnt3}回')
