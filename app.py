@@ -59,7 +59,7 @@ elif judge:
         "回数" : f"{st.session_state.cnt3}回目",
         "入力" : nums,
         "ヒット" : f"{cnt1}",
-        "ボール" : f"{cnt2}")
+        "ボール" : f"{cnt2}"})
 
 #挑戦回数の表示       
 st.write(f'挑戦回数：{st.session_state.cnt3}回')
