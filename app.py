@@ -47,6 +47,9 @@ elif judge:
             cnt2 += 1
             
     if cnt1 == 3:
+        st.session_state.history.append(
+        f"{st.session_state.cnt3}回目：{nums} → 🎉 正解！"
+    )
         st.write("正解です")
         st.image("omedetou.png", width= 200)
     else:
